@@ -52,7 +52,7 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
         System.out.println(burger.getReceipt());
         System.out.println( expReceipt);
-        assertEquals("Тект чера не совпадает с ожидаймым",
+        assertEquals("Текст чера не совпадает с ожидаймым",
                 expReceipt,
                 burger.getReceipt());
     }
