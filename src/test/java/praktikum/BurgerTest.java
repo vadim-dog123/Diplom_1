@@ -10,19 +10,14 @@ import static org.junit.Assert.assertEquals;
 
 public class BurgerTest {
 
+    private final float bunPrice = 50f;
+    private final float ingredientPrice = 5f;
+    private final float burgerPrice = bunPrice * 2 + ingredientPrice;
+    private final String expReceipt = "(==== bun ====)\r\n" + "= sauce ingredientName =\r\n" + "(==== bun ====)\r\n" + "\r\n" + "Price: 105,000000\r\n";
     @Mock
     Bun bun;
     @Mock
     Ingredient ingredient;
-    float bunPrice = 50f;
-    float ingredientPrice = 5f;
-    float burgerPrice = bunPrice * 2 + ingredientPrice;
-
-     String expReceipt = "(==== bun ====)\r\n" +
-            "= sauce ingredientName =\r\n" +
-            "(==== bun ====)\r\n" +
-            "\r\n" +
-            "Price: 105,000000\r\n";
 
     @Before
     public void setUp() {
@@ -37,7 +32,7 @@ public class BurgerTest {
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
         System.out.println(burger.getPrice());
-        assertEquals("Стоймость бургера посщитана не верно", burger.getPrice(), burgerPrice, 0.01);
+        assertEquals("Стоймость бургера посщитана не верно", burgerPrice, burger.getPrice(), 0.01);
     }
 
     @Test
@@ -51,9 +46,7 @@ public class BurgerTest {
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
         System.out.println(burger.getReceipt());
-        System.out.println( expReceipt);
-        assertEquals("Текст чера не совпадает с ожидаймым",
-                expReceipt,
-                burger.getReceipt());
+        System.out.println(expReceipt);
+        assertEquals("Текст чера не совпадает с ожидаймым", expReceipt, burger.getReceipt());
     }
 }

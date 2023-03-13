@@ -25,6 +25,6 @@ public class IngredientTypeTest {
 
     @Test
     public void ingredientTypeTest() {
-        assertEquals("Значение енума отличается от ожадаймого", type.toString(), expected);
+        assertEquals("Значение енума отличается от ожадаймого",expected, type.toString());
     }
 }
